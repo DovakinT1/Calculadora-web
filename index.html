@@ -6,6 +6,7 @@
     <title>Calculadora Científica</title>
 
     <style>
+
         body {
             margin: 0;
             height: 100vh;
@@ -18,9 +19,10 @@
 
         .calculadora {
             background: #222;
-            padding: 30px;
+            padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            width: auto;
         }
 
         #pantalla {
@@ -28,12 +30,13 @@
             height: 60px;
             font-size: 28px;
             margin-bottom: 15px;
-            text-align: center;
+            text-align: right;
             padding: 10px;
             border: none;
             border-radius: 10px;
             background: #111;
             color: #0f0;
+            box-sizing: border-box;
         }
 
         .grid {
@@ -76,6 +79,31 @@
             .igual:hover {
                 background: #00cc66;
             }
+
+        /* 📱 RESPONSIVE PARA TELÉFONO */
+        @media (max-width: 600px) {
+
+            .calculadora {
+                padding: 12px;
+                width: 95vw;
+                max-width: 420px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 6px;
+            }
+
+            button {
+                height: 50px;
+                font-size: 16px;
+            }
+
+            #pantalla {
+                height: 50px;
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 
@@ -123,6 +151,7 @@
     </div>
 
     <script>
+
         let pantalla = document.getElementById("pantalla");
 
         function agregar(valor) {
@@ -144,6 +173,7 @@
                 pantalla.value = "Error";
             }
         }
+
     </script>
 
 </body>
