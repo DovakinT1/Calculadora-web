@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Web</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+            font-family: Arial;
+        }
+
+        .calculadora {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        input {
+            width: 100%;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 10px;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculadora">
+        <input id="pantalla" disabled>
+
+        <div>
+            <button onclick="agregar('7')">7</button>
+            <button onclick="agregar('8')">8</button>
+            <button onclick="agregar('9')">9</button>
+            <button onclick="agregar('/')">÷</button>
+        </div>
+
+        <div>
+            <button onclick="agregar('4')">4</button>
+            <button onclick="agregar('5')">5</button>
+            <button onclick="agregar('6')">6</button>
+            <button onclick="agregar('*')">×</button>
+        </div>
+
+        <div>
+            <button onclick="agregar('1')">1</button>
+            <button onclick="agregar('2')">2</button>
+            <button onclick="agregar('3')">3</button>
+            <button onclick="agregar('-')">−</button>
+        </div>
+
+        <div>
+            <button onclick="agregar('0')">0</button>
+            <button onclick="calcular()">=</button>
+            <button onclick="limpiar()">C</button>
+            <button onclick="agregar('+')">+</button>
+        </div>
+    </div>
+
+    <script>
+let pantalla = document.getElementById("pantalla");
+
+function agregar(valor){
+  pantalla.value += valor;
+}
+
+function limpiar(){
+  pantalla.value = "";
+}
+
+function calcular(){
+  try {
+    pantalla.value = eval(pantalla.value);
+  } catch {
+    pantalla.value = "Error";
+  }
+}
+    </script>
+
+</body>
+</html>
